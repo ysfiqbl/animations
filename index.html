@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+
+<head>
+    <title>Carousel</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="carousel" data-autoplay="true">
+                    <div class="carousel-items">
+                        <div class="carousel-item mock-img red carousel-item-active">1</div>
+                        <div class="carousel-item mock-img yellow">2</div>
+                        <div class="carousel-item mock-img green">3</div>
+                        <div class="carousel-item mock-img blue">4</div>
+                        <div class="carousel-item mock-img gray">5</div>
+                    </div>
+                    <div class="carousel-controls">
+                        <span id="carousel-control-prev">Prev</span>
+                        <span id="carousel-control-next">Next</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="carousel.js"></script>
+    <script>
+        const carousel = new Carousel();
+        let slides = document.getElementsByClassName("carousel-item");        
+        this.slides = slides; // Set slides so Carousel can access it. NOTE: There must be a better way to do this.
+
+        // Setup event handlers
+        document.getElementById('carousel-control-prev').addEventListener('click', () => {
+            if (carousel.states.animate) return; // Return if animation is in progress
+            carousel.states.animationInitialize = true;
+            carousel.states.autoPlay = false;
+            requestAnimationFrame(carousel.slideLeft);
+        }, false);
+
+        document.getElementById('carousel-control-next').addEventListener('click', () => {
+            if (carousel.states.animate) return; // Return if animation is in progress
+            carousel.states.animationInitialize = true;
+            carousel.states.autoPlay = false;
+            requestAnimationFrame(carousel.slideRight);
+        }, false);
+
+        // Get carousel element
+        const c = document.getElementsByClassName('carousel')[0];
+
+        // Set autoplay
+        carousel.states.autoPlay = c.dataset.autoplay == 'true' ? true : false;
+
+        // Start autoplay if set
+        if (carousel.states.autoplay) requestAnimationFrame(carousel.tick);
+    </script>
+</body>
+
+</html>

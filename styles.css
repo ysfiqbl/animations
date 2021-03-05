@@ -1,0 +1,66 @@
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.carousel, 
+.carousel-items {
+    overflow: hidden;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.carousel-item-active,
+.carousel-item-next,
+.carousel-item-prev {
+    display: block; 
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-item-next {
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+.carousel-item-prev {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.mock-img {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin-top: 10px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 400%;
+    line-height: 250px;
+}
+
+div.red {
+    background: red;
+}
+
+div.yellow {
+    background-color: yellow;
+}
+
+div.green {
+    background-color: green;
+}
+
+div.blue {
+    background-color: blue;
+}
+
+div.gray {
+    background-color:gray;
+}
